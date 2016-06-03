@@ -25,6 +25,9 @@ class CreateMatchesTable extends Migration
 
             $table->dateTime('date');
 
+            $table->tinyInteger('score_home')->nullable()->unsigned();
+            $table->tinyInteger('score_away')->nullable()->unsigned();
+
             $table->timestamps();
         });
     }
