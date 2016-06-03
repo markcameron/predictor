@@ -13,4 +13,10 @@
 
 Route::get('/', 'HomeController@index');
 
+//Route::controller('matches', 'MatchesController');
+
+Route::resource('matches', 'MatchesController', [
+    'only' => ['index', 'show']
+]);
+
 Route::auth();
