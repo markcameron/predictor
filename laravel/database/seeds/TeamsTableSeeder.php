@@ -18,109 +18,109 @@ class TeamsTableSeeder extends Seeder {
       'A' => [
         [
           'name' => 'France',
-          'code' => 'FR',
+          'code' => 'fr',
         ],
         [
           'name' => 'Romania',
-          'code' => 'RO',
+          'code' => 'ro',
         ],
         [
           'name' => 'Albania',
-          'code' => 'AL',
+          'code' => 'al',
         ],
         [
           'name' => 'Switzerland',
-          'code' => 'CH',
+          'code' => 'ch',
         ],
       ],
       'B' => [
         [
           'name' => 'England',
-          'code' => 'EN',
+          'code' => 'gb-eng',
         ],
         [
           'name' => 'Russia',
-          'code' => 'RU',
+          'code' => 'ru',
         ],
         [
           'name' => 'Wales',
-          'code' => 'WA',
+          'code' => 'gb-wls',
         ],
         [
           'name' => 'Slovakia',
-          'code' => 'SK',
+          'code' => 'sk',
         ],
       ],
       'C' => [
         [
           'name' => 'Germany',
-          'code' => 'DE',
+          'code' => 'de',
         ],
         [
           'name' => 'Ukraine',
-          'code' => 'UA',
+          'code' => 'ua',
         ],
         [
           'name' => 'Poland',
-          'code' => 'PL',
+          'code' => 'pl',
         ],
         [
           'name' => 'Northern Ireland',
-          'code' => 'NIE',
+          'code' => 'gb-nir',
         ],
       ],
       'D' => [
         [
           'name' => 'Spain',
-          'code' => 'ES',
+          'code' => 'es',
         ],
         [
           'name' => 'Czech Republic',
-          'code' => 'CZ',
+          'code' => 'cz',
         ],
         [
           'name' => 'Turkey',
-          'code' => 'TR',
+          'code' => 'tr',
         ],
         [
           'name' => 'Croatia',
-          'code' => 'HR',
+          'code' => 'hr',
         ],
       ],
       'E' => [
         [
           'name' => 'Belgium',
-          'code' => 'BE',
+          'code' => 'be',
         ],
         [
           'name' => 'Italy',
-          'code' => 'IT',
+          'code' => 'it',
         ],
         [
           'name' => 'Republic of Ireland',
-          'code' => 'IE',
+          'code' => 'ie',
         ],
         [
           'name' => 'Sweden',
-          'code' => 'SE',
+          'code' => 'se',
         ],
       ],
       'F' => [
         [
           'name' => 'Portugal',
-          'code' => 'PT',
+          'code' => 'pt',
         ],
         [
           'name' => 'Iceland',
-          'code' => 'IS',
+          'code' => 'is',
         ],
         [
           'name' => 'Austria',
-          'code' => 'AT',
+          'code' => 'at',
         ],
         [
           'name' => 'Hungary',
-          'code' => 'HU',
+          'code' => 'hu',
         ],
       ],
     ];

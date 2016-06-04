@@ -12,4 +12,12 @@ angular.module('predictor', [], function($interpolateProvider) {
     }, function myError(response) {
         $scope.matches = response.statusText;
     });
+
+    $scope.hasResult = function(match) {
+	if (match.score_home && match.score_away) {
+	    return true;
+	}
+
+	return false;
+    }
 });

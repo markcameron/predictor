@@ -1,2 +1,50 @@
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+.row.match {
+    height:40px;
+    font-size:1.2em;
+    font-weight:400;
+
+    .flex-media {
+        display: flex;
+        align-items: flex-start;
+    }
+    .flex-media-reverse > .flex-media-figure {
+	order:1;
+	margin:4px 0 0 1em;
+    }
+    .flex-media-figure {
+        margin: 4px 1em 0 0;
+    }
+    .flex-media-body {
+        flex: 1;
+    }
+
+    .team-name {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        vertical-align: middle;
+    }
+    span.home-team {
+        margin-right:10px;
+    }
+    span.away-team {
+        margin-left:10px;
+    }
+    .flag-icon {
+        display:inline-block;
+        vertical-align: middle;
+    }
+
+    .result {
+    }
+    @media (max-width: 768px) {
+        .result {
+            padding:0;
+            width:50px;
+            vertical-align:middle;
+        }
+    }
+
+}

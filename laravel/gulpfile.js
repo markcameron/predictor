@@ -13,6 +13,8 @@ var elixir = require('laravel-elixir');
 
 elixir(function(mix) {
     mix
+	.copy('node_modules/flag-icon-css/css/flag-icon.min.css', 'public/css/vendor.css')
+	.copy('node_modules/flag-icon-css/flags', 'public/flags')
 	.sass('app.scss')
 	.browserify('app.js');
 });

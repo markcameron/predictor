@@ -65,7 +65,7 @@ class MatchesController extends Controller {
       'score_away' => $match->score_away,
       'stadium_name' => $match->stadium->name,
       'stadium_city' => $match->stadium->city,
-      'date' => $match->date->timezone('Europe/Paris')->toDateTimeString(),
+      'date' => $match->date->timezone('Europe/Paris')->toIso8601String(),
     ];
   }
 
