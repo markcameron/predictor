@@ -13,8 +13,14 @@ var elixir = require('laravel-elixir');
 
 elixir(function(mix) {
     mix
-	.copy('node_modules/flag-icon-css/css/flag-icon.min.css', 'public/css/vendor.css')
 	.copy('node_modules/flag-icon-css/flags', 'public/flags')
 	.sass('app.scss')
-	.browserify('app.js');
+	.browserify('app.js')
+	.styles([
+	    '../../../bower_components/flag-icon-css/css/flag-icon.min.css',
+	    '../../../bower_components/v-tabs/dist/v-tabs.css',
+	], 'public/css/vendor.css')
+	.scripts([
+	    '../../../bower_components/v-tabs/dist/v-tabs.js',
+	], 'public/js/vendor.js');
 });

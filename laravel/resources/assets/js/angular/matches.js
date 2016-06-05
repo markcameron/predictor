@@ -1,6 +1,12 @@
-angular.module('predictor', [], function($interpolateProvider) {
+angular.module('predictor', ['ngAnimate', 'ngTouch', 'vTabs'], function($interpolateProvider) {
     $interpolateProvider.startSymbol('<<');
     $interpolateProvider.endSymbol('>>');
+})
+
+.controller('mainCtrl', function($scope) {
+    $scope.mainMenuTabs = {
+        active: 0
+    };
 })
 
 .controller('matchesCtrl', function($scope, $http) {

@@ -1,0 +1,68 @@
+/***************************************
+  Tabs
+ ***************************************/
+
+
+v-tabs {
+  display: flex;
+  position: relative;
+  min-width: 100%;
+}
+
+v-tab {
+  flex: 1;
+  position: relative;
+  color: inherit;
+
+  &.is-active {
+    color: $v-tabs-active-color;
+  }
+
+  &[disabled] {
+    pointer-events: none;
+  }
+}
+
+v-tab:not([inactive]) {
+  cursor: pointer;
+}
+
+v-tabs[horizontal] {
+  flex-direction: row;
+  align-items: stretch;
+  overflow-x: auto;
+
+  v-tab {
+    text-align: center;
+    min-width: $v-tabs-tab-min-width;
+  }
+}
+
+v-tabs[vertical] {
+  flex-direction: column;
+
+  v-tab {
+    text-align: left;
+  }
+}
+
+
+
+/***************************************
+  Pages
+ ***************************************/
+
+
+v-pages {
+  display: block;
+  position: relative;
+}
+
+v-page {
+  display: none;
+  position: relative;
+
+  &.is-active {
+    display: block;
+  }
+}

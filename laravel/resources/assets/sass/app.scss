@@ -1,5 +1,9 @@
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+v-tabs[horizontal] v-tab.my-predictions {
+    min-width: 120px;
+}
+
 .row.match {
     height:40px;
     font-size:1.2em;
@@ -38,6 +42,7 @@
     }
 
     .result {
+	font-weight:600;
     }
     @media (max-width: 768px) {
         .result {
