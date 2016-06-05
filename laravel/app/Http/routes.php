@@ -13,6 +13,9 @@
 
 Route::get('/', 'HomeController@index');
 
+Route::get('login/facebook', 'Auth\AuthController@redirectToProvider');
+Route::get('login/facebook/callback', 'Auth\AuthController@handleProviderCallback');
+
 Route::resource('matches', 'MatchesController', [
     'only' => ['index', 'show']
 ]);

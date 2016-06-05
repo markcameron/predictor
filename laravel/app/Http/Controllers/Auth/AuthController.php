@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\Models\User;
+use Auth;
+use Socialite;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -69,4 +71,54 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    /**
+     * Redirect the user to the GitHub authentication page.
+     *
+     * @return Response
+     */
+    public function redirectToProvider()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    /**
+     * Obtain the user information from GitHub.
+     *
+     * @return Response
+     */
+    public function handleProviderCallback()
+    {
+        $socialite = Socialite::driver('facebook')->user();
+
+        $user = User::whereEmail($socialite->getEmail())->first();
+
+        // Create Account
+        if (is_null($user)) {
+          $user = new User;
+
+          $user->email = $socialite->getEmail();
+          $user->active = 1;
+
+          $name = explode(' ', $socialite->getName());
+
+          if (!empty($name[0])) {
+            $user->first_name = $name[0];
+          }
+          else {
+            $user->first_name = $socialite->getEmail();
+          }
+
+          if (!empty($name[1])) {
+            $user->last_name = $name[1];
+          }
+
+          $user->save();
+        }
+
+        Auth::login($user, true);
+
+        return redirect('/');
+    }
+
 }
