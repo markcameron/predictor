@@ -23,6 +23,10 @@ elixir(function(mix) {
 	    '../../../node_modules/ng-dialog/css/ngDialog-theme-default.css',
 	    '../vendor/ng-dialog/ngDialog-theme-flat.css',
 	], 'public/css/vendor.css')
+	.styles([
+	    '../vendor/login/form-elements.css',
+	    '../vendor/login/style.css',
+	], 'public/css/login.css')
 	.scripts([
 	    '../../../bower_components/v-tabs/dist/v-tabs.js',
 	], 'public/js/vendor.js');

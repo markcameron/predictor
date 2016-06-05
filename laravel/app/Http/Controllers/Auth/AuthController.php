@@ -12,7 +12,7 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller
 {
-    /*
+  /*
     |--------------------------------------------------------------------------
     | Registration & Login Controller
     |--------------------------------------------------------------------------
@@ -21,104 +21,104 @@ class AuthController extends Controller
     | authentication of existing users. By default, this controller uses
     | a simple trait to add these behaviors. Why don't you explore it?
     |
-    */
+  */
 
-    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+  use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
-    /**
-     * Where to redirect users after login / registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/';
+  /**
+   * Where to redirect users after login / registration.
+   *
+   * @var string
+   */
+  protected $redirectTo = '/';
 
-    /**
-     * Create a new authentication controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+  /**
+   * Create a new authentication controller instance.
+   *
+   * @return void
+   */
+  public function __construct()
+  {
+    $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+  }
+
+  /**
+   * Redirect the user to the GitHub authentication page.
+   *
+   * @return Response
+   */
+  public function redirectToProvider()
+  {
+    return Socialite::driver('facebook')->redirect();
+  }
+
+  /**
+   * Obtain the user information from GitHub.
+   *
+   * @return Response
+   */
+  public function handleProviderCallback()
+  {
+    $socialite = Socialite::driver('facebook')->user();
+
+    $user = User::whereEmail($socialite->getEmail())->first();
+
+    // Create Account
+    if (is_null($user)) {
+      $user = new User;
+
+      $user->email = $socialite->getEmail();
+      $user->active = 1;
+
+      $name = explode(' ', $socialite->getName());
+
+      if (!empty($name[0])) {
+        $user->first_name = $name[0];
+      }
+      else {
+        $user->first_name = $socialite->getEmail();
+      }
+
+      if (!empty($name[1])) {
+        $user->last_name = $name[1];
+      }
+
+      $user->save();
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
-        ]);
-    }
+    Auth::login($user, true);
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return User
-     */
-    protected function create(array $data)
-    {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
-    }
+    return redirect('/');
+  }
 
-    /**
-     * Redirect the user to the GitHub authentication page.
-     *
-     * @return Response
-     */
-    public function redirectToProvider()
-    {
-        return Socialite::driver('facebook')->redirect();
-    }
+  /**
+   * Get a validator for an incoming registration request.
+   *
+   * @param  array  $data
+   * @return \Illuminate\Contracts\Validation\Validator
+   */
+  public function validator(array $data) {
+    return Validator::make($data, [
+                             'first_name' => 'required|max:255',
+                             'last_name' => 'required|max:255',
+                             'email' => 'required|email|max:255|unique:users',
+                             'password' => 'required|confirmed|min:6',
+                           ]);
+  }
 
-    /**
-     * Obtain the user information from GitHub.
-     *
-     * @return Response
-     */
-    public function handleProviderCallback()
-    {
-        $socialite = Socialite::driver('facebook')->user();
-
-        $user = User::whereEmail($socialite->getEmail())->first();
-
-        // Create Account
-        if (is_null($user)) {
-          $user = new User;
-
-          $user->email = $socialite->getEmail();
-          $user->active = 1;
-
-          $name = explode(' ', $socialite->getName());
-
-          if (!empty($name[0])) {
-            $user->first_name = $name[0];
-          }
-          else {
-            $user->first_name = $socialite->getEmail();
-          }
-
-          if (!empty($name[1])) {
-            $user->last_name = $name[1];
-          }
-
-          $user->save();
-        }
-
-        Auth::login($user, true);
-
-        return redirect('/');
-    }
+  /**
+   * Create a new user instance after a valid registration.
+   *
+   * @param  array  $data
+   * @return User
+   */
+  public function create(array $data) {
+    return User::create([
+                          'first_name' => $data['first_name'],
+                          'last_name' => $data['last_name'],
+                          'email' => $data['email'],
+                          'password' => bcrypt($data['password']),
+                        ]);
+  }
 
 }

@@ -1,66 +1,66 @@
 @extends('layouts.app')
 
+@section('styles')
+  <link href="{{ asset('css/login.css') }}" rel="stylesheet">
+@stop
+
 @section('content')
-<div class="container">
+
+  <div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
-                        {!! csrf_field() !!}
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input type="email" class="form-control" name="email" value="{{ old('email') }}">
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input type="password" class="form-control" name="password">
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember"> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-sign-in"></i>Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+      <div class="col-sm-6 col-sm-offset-3 form-box">
+        <div class="form-top">
+          <div class="col-sm-6 social-login">
+            <div class="social-login-buttons">
+              <a class="btn btn-link-2" href="{{ url('login/facebook') }}">
+                <i class="fa fa-facebook"></i> Facebook
+              </a>
             </div>
+          </div>
+          <div class="col-sm-6 social-login">
+            <div class="social-login-buttons">
+              <a class="btn btn-link-2" href="{{ url('register') }}">
+                Register
+              </a>
+            </div>
+          </div>
         </div>
+        <div class="form-bottom">
+          <form role="form" method="POST" action="{{ url('/login') }}" class="login-form">
+
+            {!! csrf_field() !!}
+
+            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+              <label class="sr-only" for="email">E-Mail</label>
+              <input type="text" name="email" placeholder="E-Mail" class="form-email form-control" id="form-email" value="{{ old('email') }}">
+	      @if ($errors->has('email'))
+                <span class="help-block">
+                  <strong>{{ $errors->first('email') }}</strong>
+                </span>
+              @endif
+            </div>
+
+            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+              <label class="sr-only" for="password">Password</label>
+              <input type="password" name="password" placeholder="Password" class="form-password form-control" id="form-password" value="{{ old('password') }}">
+	      @if ($errors->has('password'))
+                <span class="help-block">
+                  <strong>{{ $errors->first('password') }}</strong>
+                </span>
+              @endif
+            </div>
+
+            <button type="submit" class="btn">Login</button>
+
+	    <div class="form-group forgot-password">
+	      <a href="{{ url('password/reset') }}" class="pull-right">Forgot password?</a>
+	    </div>
+          </form>
+        </div>
+      </div>
+
     </div>
-</div>
+  </div>
+
 @endsection
