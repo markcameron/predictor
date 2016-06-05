@@ -5,8 +5,16 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Models\Match;
 use Response;
+use App\Http\Controllers\AuthenticatedController;
 
-class MatchesController extends Controller {
+class MatchesController extends AuthenticatedController {
+
+  /**
+   * init Class
+   */
+  function __construct() {
+    parent::__construct();
+  }
 
   /**
    * Retrieve all the matches
@@ -44,29 +52,6 @@ class MatchesController extends Controller {
     );
 
     return Response::json($match->first(), 200);
-  }
-
-  /**
-   * Helper function to create a clean match object from the different relations
-   *
-   * @param object $match
-   * The match Eloquent collection
-   *
-   * @return
-   */
-  protected function cleanMatch($match) {
-    return (object) [
-      'id' => $match->id,
-      'home_team' => $match->teamHome->name,
-      'home_team_code' => $match->teamHome->code,
-      'score_home' => $match->score_home,
-      'away_team' => $match->teamAway->name,
-      'away_team_code' => $match->teamAway->code,
-      'score_away' => $match->score_away,
-      'stadium_name' => $match->stadium->name,
-      'stadium_city' => $match->stadium->city,
-      'date' => $match->date->timezone('Europe/Paris')->toIso8601String(),
-    ];
   }
 
 }

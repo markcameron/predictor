@@ -13,10 +13,16 @@
 
 Route::get('/', 'HomeController@index');
 
-//Route::controller('matches', 'MatchesController');
-
 Route::resource('matches', 'MatchesController', [
     'only' => ['index', 'show']
+]);
+
+Route::resource('predictions', 'PredictionsController', [
+    'only' => ['index', 'update']
+]);
+
+Route::resource('leaderboards', 'LeaderboardsController', [
+    'only' => ['index']
 ]);
 
 Route::auth();

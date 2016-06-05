@@ -1,7 +1,59 @@
+@import "variables";
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
 v-tabs[horizontal] v-tab.my-predictions {
     min-width: 120px;
+}
+
+.ngdialog.ngdialog-theme-custom {
+	padding-top: 125px;
+	padding-bottom: 125px;
+}
+
+.ngdialog.ngdialog-theme-custom .ngdialog-overlay {
+	background: rgba(0,0,0,.5);
+}
+
+.ngdialog.ngdialog-theme-custom .ngdialog-content {
+	background: rgba(255,255,255,1);
+	padding: 1.8em 2em;
+	width: 440px;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+}
+
+.ngdialog.ngdialog-theme-custom .ngdialog-message h2 {
+	font-size: 26px;
+	font-family: 'Montserrat', 'Helvetica', Arial, sans-serif;
+	line-height: 30px;
+	margin-bottom: 20px;
+}
+
+.ngdialog.ngdialog-theme-custom .ngdialog-message {
+	font-size: 16px;
+	font-family: 'Source Sans Pro';
+	line-height: 22px;
+}
+
+.ngdialog.ngdialog-theme-custom .ngdialog-message ul {
+	padding: 0 0 5px 35px;
+}
+
+.ngdialog.ngdialog-theme-custom .ngdialog-button.ngdialog-button-primary {
+	background: #27ae60;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+}
+
+.flex-media {
+    display: flex;
+    align-items: flex-start;
+}
+.flex-media-reverse > .flex-media-figure {
+    order:1;
+}
+.flex-media-body {
+    flex: 1;
 }
 
 .row.match {
@@ -9,19 +61,11 @@ v-tabs[horizontal] v-tab.my-predictions {
     font-size:1.2em;
     font-weight:400;
 
-    .flex-media {
-        display: flex;
-        align-items: flex-start;
-    }
     .flex-media-reverse > .flex-media-figure {
-	order:1;
 	margin:4px 0 0 1em;
     }
     .flex-media-figure {
-        margin: 4px 1em 0 0;
-    }
-    .flex-media-body {
-        flex: 1;
+	margin: 4px 1em 0 0;
     }
 
     .team-name {
@@ -50,6 +94,33 @@ v-tabs[horizontal] v-tab.my-predictions {
             width:50px;
             vertical-align:middle;
         }
+    }
+
+}
+
+.ngdialog.ngdialog-theme-custom .ngdialog-message {
+
+    font-family:'Lato';
+
+    .team-name {
+	font-size:1.5em;
+    }
+
+    .score-select {
+	font-size:2em;
+	margin:20px 0;
+	height:50px;
+    }
+
+    .score {
+	font-size:2.4em;
+    }
+
+    .flex-media-reverse > .flex-media-figure {
+	margin:0 0 0 1em;
+    }
+    .flex-media-figure {
+	margin:0 1em 0 0;
     }
 
 }

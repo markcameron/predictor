@@ -19,6 +19,9 @@ elixir(function(mix) {
 	.styles([
 	    '../../../bower_components/flag-icon-css/css/flag-icon.min.css',
 	    '../../../bower_components/v-tabs/dist/v-tabs.css',
+	    '../../../node_modules/ng-dialog/css/ngDialog.css',
+	    '../../../node_modules/ng-dialog/css/ngDialog-theme-default.css',
+	    '../vendor/ng-dialog/ngDialog-theme-flat.css',
 	], 'public/css/vendor.css')
 	.scripts([
 	    '../../../bower_components/v-tabs/dist/v-tabs.js',
