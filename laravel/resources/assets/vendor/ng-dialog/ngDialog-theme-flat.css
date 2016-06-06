@@ -84,7 +84,7 @@
 .ngdialog.ngdialog-theme-flat .ngdialog-content {
   -webkit-animation: ngdialog-flipin-horizontal .5s;
   animation: ngdialog-flipin-horizontal .5s;
-  background: #fff;
+  background: #007cba;
   color: #444;
   border: 5px solid #27ae60;
   font-family: "Helvetica Neue",sans-serif;

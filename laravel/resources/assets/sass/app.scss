@@ -1,12 +1,28 @@
 @import "variables";
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+body {
+    background:#007cba;
+    color:#fff;
+}
+
 v-tabs[horizontal] v-tab.my-predictions {
     min-width: 120px;
 }
 
+v-tabs {
+    font-weight:600;
+}
+
 v-page {
     min-height:600px;
+}
+
+v-tab.is-active {
+    color: #65beec;
+}
+.vTabs--default v-tab.is-active::after {
+    background-color: #65beec;
 }
 
 .ngdialog.ngdialog-theme-custom {
@@ -19,7 +35,8 @@ v-page {
 }
 
 .ngdialog.ngdialog-theme-custom .ngdialog-content {
-    background: rgba(255,255,255,1);
+    background: #007cba;
+    opacity: 1;
     padding: 1.8em 2em;
     width: 440px;
     -webkit-border-radius: 0;
@@ -102,29 +119,141 @@ v-page {
 
 }
 
-.ngdialog.ngdialog-theme-custom .ngdialog-message {
+.ngdialog.ngdialog-theme-custom {
 
-    font-family:'Lato';
+    .ngdialog-buttons {
 
-    .team-name {
-        font-size:1.5em;
+	margin-top:20px;
+
+	a {
+        width:100%;
+	}
     }
 
-    .score-select {
-        font-size:2em;
-        margin:20px 0;
-        height:50px;
+    .ngdialog-message {
+
+        font-family:'Lato';
+        color:#fff;
+
+        .team-name {
+            font-size:1.5em;
+        }
+
+        .score-select {
+            font-size:1.8em;
+            margin:20px 0;
+            height:50px;
+        }
+
+        .score-select a {
+            font-weight:600;
+            font-size: 24px;
+            line-height: 18px;
+            padding: 6px 10px;
+        }
+
+        .score {
+            font-size:2.4em;
+        }
+
+        .flex-media-reverse > .flex-media-figure {
+            margin:0 0 0 1em;
+        }
+        .flex-media-figure {
+            margin:0 1em 0 0;
+        }
     }
 
-    .score {
-        font-size:2.4em;
-    }
+}
 
-    .flex-media-reverse > .flex-media-figure {
-        margin:0 0 0 1em;
-    }
-    .flex-media-figure {
-        margin:0 1em 0 0;
-    }
+.btn-action {
+  color: #ffffff;
+  background-color: #23AAED;
+  border-color: #23AAED;
+}
 
+.btn-action:hover,
+.btn-action:focus,
+.btn-action:active,
+.btn-action.active,
+.open .dropdown-toggle.btn-action {
+  color: #ffffff;
+  background-color: #088BCC;
+  border-color: #23AAED;
+}
+
+.btn-action:active,
+.btn-action.active,
+.open .dropdown-toggle.btn-action {
+  background-image: none;
+}
+
+.btn-action.disabled,
+.btn-action[disabled],
+fieldset[disabled] .btn-action,
+.btn-action.disabled:hover,
+.btn-action[disabled]:hover,
+fieldset[disabled] .btn-action:hover,
+.btn-action.disabled:focus,
+.btn-action[disabled]:focus,
+fieldset[disabled] .btn-action:focus,
+.btn-action.disabled:active,
+.btn-action[disabled]:active,
+fieldset[disabled] .btn-action:active,
+.btn-action.disabled.active,
+.btn-action[disabled].active,
+fieldset[disabled] .btn-action.active {
+  background-color: #23AAED;
+  border-color: #23AAED;
+}
+
+.btn-action .badge {
+  color: #23AAED;
+  background-color: #ffffff;
+}
+
+.btn-cancel {
+    color: #ffffff;
+    background-color: #DE615E;
+    border-color: #DE615E;
+}
+
+.btn-cancel:hover,
+.btn-cancel:focus,
+.btn-cancel:active,
+.btn-cancel.active,
+.open .dropdown-toggle.btn-cancel {
+    color: #ffffff;
+    background-color: #D93936;
+    border-color: #DE615E;
+}
+
+.btn-cancel:active,
+.btn-cancel.active,
+.open .dropdown-toggle.btn-cancel {
+    background-image: none;
+}
+
+.btn-cancel.disabled,
+.btn-cancel[disabled],
+fieldset[disabled] .btn-cancel,
+.btn-cancel.disabled:hover,
+.btn-cancel[disabled]:hover,
+fieldset[disabled] .btn-cancel:hover,
+.btn-cancel.disabled:focus,
+.btn-cancel[disabled]:focus,
+fieldset[disabled] .btn-cancel:focus,
+.btn-cancel.disabled:active,
+.btn-cancel[disabled]:active,
+fieldset[disabled] .btn-cancel:active,
+.btn-cancel.disabled.active,
+.btn-cancel[disabled].active,
+fieldset[disabled] .btn-cancel.active {
+    background-color: #DE615E;
+    border-color: #DE615E;
+}
+
+.btn-cancel .badge {
+    color: #DE615E;
+    background-color: #ffffff;
 }

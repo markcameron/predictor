@@ -26,7 +26,7 @@
               << match.score_home >> - << match.score_away >>
             </div>
             <div ng-if="!hasResult(match)" class="col-xs-2 result nopadding text-center">
-              <a href="#" class="btn btn-success btn-flat btn-sm">Add</a>
+              <a href="#" class="btn btn-action btn-flat btn-sm">Add</a>
             </div>
 
             <div class="col-xs-5 team">
@@ -48,14 +48,14 @@
               </div>
             </div>
             <div class="row score-select text-center">
-              <div class="col-xs-4"><a href="" class="btn btn-warning" ng-click="decreaseScore('home')"> - </a></div>
+              <div class="col-xs-4"><a href="" class="btn btn-action" ng-click="decreaseScore('home')"> - </a></div>
               <div class="col-xs-4 score score-home"><< match.score_home >></div>
-              <div class="col-xs-4"><a href="" class="btn btn-success" ng-click="increaseScore('home')"> + </a></div>
+              <div class="col-xs-4"><a href="" class="btn btn-action" ng-click="increaseScore('home')"> + </a></div>
             </div>
             <div class="row score-select text-center">
-              <div class="col-xs-4"><a href="" class="btn btn-warning" ng-click="decreaseScore('away')"> - </a></div>
+              <div class="col-xs-4"><a href="" class="btn btn-action" ng-click="decreaseScore('away')"> - </a></div>
               <div class="col-xs-4 score"><< match.score_away >></div>
-              <div class="col-xs-4"><a href="" class="btn btn-success" ng-click="increaseScore('away')"> + </a></div>
+              <div class="col-xs-4"><a href="" class="btn btn-action" ng-click="increaseScore('away')"> + </a></div>
             </div>
             <div class="row team-name">
               <div class="flex-media flex-media">
@@ -65,8 +65,12 @@
             </div>
           </div>
           <div class="ngdialog-buttons mt">
-            <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="saveScore()">Save</button>
-            <button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="closeThisDialog()">Cancel</button>
+	    <div class="col-xs-6">
+	      <a href="" class="btn btn-cancel" ng-click="closeThisDialog()">Cancel</a>
+	    </div>
+	    <div class="col-xs-6">
+	      <a href="" class="btn btn-action" ng-click="saveScore()">Save</a>
+	    </div>
           </div>
         </script>
 
