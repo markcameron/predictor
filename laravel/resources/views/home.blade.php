@@ -2,7 +2,7 @@
 
 @section('content')
 
-  <div ng-app="predictor" ng-controller="mainCtrl">
+  <div ng-app="predictor" ng-controller="mainCtrl" ng-strict-di>
 
     <v-tabs class="vTabs--default" horizontal control="mainMenuTabs" active="mainMenuTabs.active">
       <v-tab class="my-predictions">My Predictions</v-tab>

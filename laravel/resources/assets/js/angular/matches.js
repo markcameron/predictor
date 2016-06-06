@@ -1,9 +1,9 @@
-angular.module('predictor', ['ngAnimate', 'ngTouch', 'ngDialog', 'vTabs'], function($interpolateProvider) {
+angular.module('predictor', ['ngAnimate', 'ngTouch', 'ngDialog', 'vTabs'], ["$interpolateProvider", function($interpolateProvider) {
     $interpolateProvider.startSymbol('<<');
     $interpolateProvider.endSymbol('>>');
-})
+}])
 
-    .controller('mainCtrl', function($scope) {
+    .controller('mainCtrl', ["$scope", function($scope) {
         $scope.mainMenuTabs = {
             active: 0
         };
@@ -15,9 +15,9 @@ angular.module('predictor', ['ngAnimate', 'ngTouch', 'ngDialog', 'vTabs'], funct
 
             return false;
         }
-    })
+    }])
 
-    .controller('matchesCtrl', function($scope, $http) {
+    .controller('matchesCtrl', ["$scope", "$http", function($scope, $http) {
         $http({
             method : "GET",
             url : "/matches"
@@ -27,9 +27,9 @@ angular.module('predictor', ['ngAnimate', 'ngTouch', 'ngDialog', 'vTabs'], funct
             $scope.matches = response.statusText;
         });
 
-    })
+    }])
 
-    .controller('predictionsCtrl', function($scope, $http, ngDialog) {
+    .controller('predictionsCtrl', ["$scope", "$http", "ngDialog", function($scope, $http, ngDialog) {
         $http({
             method : "GET",
             url : "/predictions"
@@ -49,9 +49,9 @@ angular.module('predictor', ['ngAnimate', 'ngTouch', 'ngDialog', 'vTabs'], funct
 		scope: $scope
             });
         };
-    })
+    }])
 
-    .controller('dialogPredictionCtrl', function ($scope, $http, ngDialog) {
+    .controller('dialogPredictionCtrl', ["$scope", "$http", "ngDialog", function ($scope, $http, ngDialog) {
 	if ($scope.match.score_home == null) {
 	    $scope.match.score_home = 0;
 	}
@@ -101,9 +101,9 @@ angular.module('predictor', ['ngAnimate', 'ngTouch', 'ngDialog', 'vTabs'], funct
 		$scope.predictions = response.statusText;
             });
 	}
-    })
+    }])
 
-    .controller('leaderboardCtrl', function($scope, $http, ngDialog) {
+    .controller('leaderboardCtrl', ["$scope", "$http", function($scope, $http) {
         $http({
             method : "GET",
             url : "/leaderboards"
@@ -112,4 +112,4 @@ angular.module('predictor', ['ngAnimate', 'ngTouch', 'ngDialog', 'vTabs'], funct
         }, function myError(response) {
             $scope.leaderboard = response.statusText;
         });
-    });
+    }]);
