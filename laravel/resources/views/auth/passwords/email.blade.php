@@ -13,12 +13,14 @@
         <div class="form-bottom">
 
           @if (session('status'))
+	    {{ dd(session('status')) }}
+
             <div class="alert alert-success">
               {{ session('status') }}
             </div>
           @endif
 
-          <form role="form" method="POST" action="{{ url('/password/reset') }}" class="login-form">
+          <form role="form" method="POST" action="{{ url('password/email') }}" class="login-form">
             {!! csrf_field() !!}
 
             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
