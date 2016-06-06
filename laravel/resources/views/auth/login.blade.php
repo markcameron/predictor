@@ -11,14 +11,14 @@
 
       <div class="col-sm-6 col-sm-offset-3 form-box">
         <div class="form-top">
-          <div class="col-sm-6 social-login">
+          <div class="col-xs-6 social-login">
             <div class="social-login-buttons">
               <a class="btn btn-link-2" href="{{ url('login/facebook') }}">
                 <i class="fa fa-facebook"></i> Facebook
               </a>
             </div>
           </div>
-          <div class="col-sm-6 social-login">
+          <div class="col-xs-6 social-login">
             <div class="social-login-buttons">
               <a class="btn btn-link-2" href="{{ url('register') }}">
                 Register
