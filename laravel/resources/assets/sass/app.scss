@@ -82,11 +82,33 @@ v-tab.is-active {
     font-size:1.2em;
     font-weight:400;
 
+    .result {
+	.date {
+	    line-height:15px;
+	}
+
+	.date-day {
+	    font-weight:400;
+	    text-transform:uppercase;
+	    font-size:0.7em;
+	}
+	.date-time {
+	    font-size:0.9em;
+	}
+    }
+
+    .flex-media {
+	margin-top: 2px;
+    }
     .flex-media-reverse > .flex-media-figure {
         margin:4px 0 0 1em;
     }
     .flex-media-figure {
         margin: 4px 1em 0 0;
+    }
+
+    a.btn {
+	padding: 2px 12px;
     }
 
     .team-name {

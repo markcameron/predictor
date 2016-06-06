@@ -91,7 +91,8 @@
               << match.score_home >> - << match.score_away >>
             </div>
             <div ng-if="!hasResult(match)" class="col-xs-2 result nopadding text-center">
-              << match.date | date : 'H:mm' >>
+              <div class="row date date-day"><< match.date | date : 'MMM d' >></div>
+              <div class="row date date-time"><< match.date | date : 'H:mm' >></div>
             </div>
 
             <div class="col-xs-5 team">
