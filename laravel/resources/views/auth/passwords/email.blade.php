@@ -13,8 +13,6 @@
         <div class="form-bottom">
 
           @if (session('status'))
-	    {{ dd(session('status')) }}
-
             <div class="alert alert-success">
               {{ session('status') }}
             </div>

@@ -11,7 +11,7 @@
 
       <div class="col-sm-6 col-sm-offset-3 form-box">
         <div class="form-bottom">
-          <form role="form" method="POST" action="{{ url('/password/reset') }}" class="login-form">
+          <form role="form" method="POST" action="{{ url('password/reset') }}" class="login-form">
             {!! csrf_field() !!}
 
             <input type="hidden" name="token" value="{{ $token }}">
@@ -28,7 +28,7 @@
 
             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
               <label class="sr-only" for="password">New Passord</label>
-              <input type="text" name="password" placeholder="New Passord" class="form-password form-control" id="form-password">
+              <input type="password" name="password" placeholder="New Passord" class="form-password form-control" id="form-password">
               @if ($errors->has('password'))
                 <span class="help-block">
                   <strong>{{ $errors->first('password') }}</strong>
