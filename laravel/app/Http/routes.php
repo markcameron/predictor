@@ -28,4 +28,12 @@ Route::resource('leaderboards', 'LeaderboardsController', [
     'only' => ['index']
 ]);
 
+Route::resource('admin/matches', 'Admin\MatchesController', [
+    'only' => ['index', 'edit', 'update']
+]);
+
+Route::resource('admin/goals', 'Admin\GoalsController', [
+    'only' => ['create', 'store', 'edit', 'update']
+]);
+
 Route::auth();

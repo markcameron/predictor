@@ -4,6 +4,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Match extends Model {
 
+  protected $fillable = [
+    'score_home',
+    'score_away',
+  ];
+
   protected $dates = ['date'];
 
   public function teamHome() {
@@ -24,6 +29,14 @@ class Match extends Model {
 
   public function userPrediction() {
     return $this->hasMany('App\Models\Prediction')->whereUserId(\Auth::user()->id);
+  }
+
+  public function goalsHome() {
+    return $this->hasMany('App\Models\Goal')->whereTeam('home');
+  }
+
+  public function goalsAway() {
+    return $this->hasMany('App\Models\Goal')->whereTeam('away');
   }
 
 }

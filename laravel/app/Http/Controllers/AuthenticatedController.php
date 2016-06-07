@@ -7,6 +7,8 @@ class AuthenticatedController extends Controller {
   protected $user;
 
   function __construct() {
+    $this->middleware('auth');
+
     $this->user = Auth::user();
   }
 
