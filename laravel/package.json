@@ -11,6 +11,6 @@
     "angular": "^1.0.0",
     "angular-animate": "^1.0.0",
     "angular-touch": "^1.0.0",
-    "ng-dialog": "^0.0.0"
+    "ng-dialog": "^0.6.0"
   }
 }
