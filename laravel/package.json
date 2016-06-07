@@ -8,6 +8,9 @@
     "gulp": "^3.9.1",
     "laravel-elixir": "^5.0.0",
     "bootstrap-sass": "^3.0.0",
-    "angular": "^1.0.0"
+    "angular": "^1.0.0",
+    "angular-animate": "^1.0.0",
+    "angular-touch": "^1.0.0",
+    "ng-dialog": "^0.0.0"
   }
 }
