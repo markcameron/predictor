@@ -11,7 +11,7 @@ class Prediction extends Model {
     'score_away',
   ];
 
-  public function predictions() {
+  public function match() {
     return $this->belongsTo('App\Models\Match');
   }
 

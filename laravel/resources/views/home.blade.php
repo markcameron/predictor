@@ -110,16 +110,24 @@
 
         <div class="container" ng-controller="leaderboardCtrl">
 
-          <div class="col-xs-12" ng-repeat="user in leaderboard">
-            <div class="row">
-	      <div class="col-xs-9">
-		<< user.full_name >>
-	      </div>
-	      <div class="col-xs-3">
-		<< user.score >>
-	      </div>
-            </div>
-          </div>
+	  <table class="table text-center">
+	    <thead>
+	      <th></th>
+	      <th></th>
+	      <th class="text-center">ES</th>
+	      <th class="text-center">GD</th>
+	      <th class="text-center">W</th>
+	      <th class="text-center">Total</th>
+	    </thead>
+	    <tr ng-repeat="user in leaderboard">
+	      <td class="text-right"><< $index + 1 >>.</td>
+	      <td class="text-left"><< user.full_name >></td>
+	      <td><< user.exact_score >></td>
+	      <td><< user.correct_goal_difference >></td>
+	      <td><< user.correct_winner >></td>
+	      <td><strong><< user.score >></strong></td>
+	    </tr>
+	  </table>
 
         </div>
 
