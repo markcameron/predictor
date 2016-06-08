@@ -14,15 +14,95 @@ v-tabs {
     font-weight:600;
 }
 
-v-page {
-    min-height:600px;
-}
-
 v-tab.is-active {
     color: #65beec;
 }
+v-tab {
+    v-tab.is-active {
+	color: #65beec;
+    }
+}
 .vTabs--default v-tab.is-active::after {
     background-color: #65beec;
+}
+.vTabs--default v-tab:hover, .vTabs--default v-tab:focus {
+    color: #65beec;
+}
+
+// -------------------------------------
+// Settings
+// -------------------------------------
+
+
+$v-accordion-default-theme:         true !default;
+
+
+// Accordion
+// -------------------------------------
+
+$v-accordion-spacing:               20px !default;
+
+$v-pane-border-color:               #D8D8D8 !default;
+$v-pane-expanded-border-color:      #2196F3 !default;
+$v-pane-icon-color:                 #2196F3 !default;
+$v-pane-hover-color:                #2196F3 !default;
+$v-pane-disabled-opacity:           0.6 !default;
+
+$v-pane-expand-animation-duration:  0.5s  !default;
+$v-pane-hover-animation-duration:   0.25s !default;
+
+
+
+/* Base styles
+ ***************************************/
+
+
+v-accordion {
+  display: block;
+}
+
+v-pane {
+  display: block;
+
+  &.is-expanded {
+    > v-pane-content {
+      > div {
+        display: visible;
+      }
+    }
+  }
+
+  &[disabled] > v-pane-header {
+    opacity: $v-pane-disabled-opacity;
+    pointer-events: none;
+  }
+}
+
+v-pane-header {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+
+  &:focus {
+    outline: none;
+  }
+
+  > div {
+    display: block;
+  }
+}
+
+v-pane-content {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  max-height: 0px;
+
+  > div {
+    visibility: none;
+  }
 }
 
 .ngdialog.ngdialog-theme-custom {
@@ -78,9 +158,13 @@ v-tab.is-active {
 }
 
 .row.match {
-    height:40px;
+
     font-size:1.2em;
     font-weight:400;
+
+    .match-result {
+	height:40px;
+    }
 
     .result {
 	.date {
@@ -131,6 +215,7 @@ v-tab.is-active {
     .result {
         font-weight:600;
     }
+
     @media (max-width: 768px) {
         .result {
             padding:0;
@@ -139,6 +224,36 @@ v-tab.is-active {
         }
     }
 
+}
+
+.row.results {
+
+    .match-detail {
+	font-size:0.8em;
+    }
+
+    v-tabs {
+	background:#004466;
+    }
+    v-pages {
+	background:#004466;
+    }
+
+    .vTabs--default {
+	margin-bottom: 0;
+    }
+    .vTabs--default[horizontal] v-tab {
+	padding: 5px 0;
+    }
+
+    .goals,
+    .user-predictions {
+	padding:5px 0
+    }
+}
+
+v-page.leaderboards-page {
+    min-height:600px;
 }
 
 .ngdialog.ngdialog-theme-custom {

@@ -65,12 +65,12 @@
             </div>
           </div>
           <div class="ngdialog-buttons mt">
-	    <div class="col-xs-6">
-	      <a href="" class="btn btn-cancel" ng-click="closeThisDialog()">Cancel</a>
-	    </div>
-	    <div class="col-xs-6">
-	      <a href="" class="btn btn-action" ng-click="saveScore()">Save</a>
-	    </div>
+            <div class="col-xs-6">
+              <a href="" class="btn btn-cancel" ng-click="closeThisDialog()">Cancel</a>
+            </div>
+            <div class="col-xs-6">
+              <a href="" class="btn btn-action" ng-click="saveScore()">Save</a>
+            </div>
           </div>
         </script>
 
@@ -79,45 +79,107 @@
       <v-page>
         <div class="container" ng-controller="matchesCtrl">
 
-          <div class="row match" ng-repeat="match in matches">
-            <div class="col-xs-5 team text-right">
-              <div class="flex-media flex-media-reverse">
-                <span class="flex-media-figure flag-icon flag-icon-<< match.home_team_code >>"></span>
-                <p class="flex-media-body team-name"><< match.home_team >></p>
-              </div>
-            </div>
+          <v-accordion id="accordionA" class="vAccordion--default">
 
-            <div ng-if="hasResult(match)" class="col-xs-2 result nopadding text-center">
-              << match.score_home >> - << match.score_away >>
-            </div>
-            <div ng-if="!hasResult(match)" class="col-xs-2 result nopadding text-center">
-              <div class="row date date-day"><< match.date | date : 'MMM d' >></div>
-              <div class="row date date-time"><< match.date | date : 'H:mm' >></div>
-            </div>
+            <v-pane class="row match results" ng-repeat="match in matches">
+              <v-pane-header>
+                <div class="match-result">
+                  <div class="col-xs-5 team text-right">
+                    <div class="flex-media flex-media-reverse">
+                      <span class="flex-media-figure flag-icon flag-icon-<< match.home_team_code >>"></span>
+                      <p class="flex-media-body team-name"><< match.home_team >></p>
+                    </div>
+                  </div>
 
-            <div class="col-xs-5 team">
-              <div class="flex-media">
-                <span class="flex-media-figure flag-icon flag-icon-<< match.away_team_code >>"></span>
-                <div class="flex-media-body team-name"><< match.away_team >></div>
-              </div>
-            </div>
-          </div>
+                  <div ng-if="hasResult(match)" class="col-xs-2 result nopadding text-center">
+                    << match.score_home >> - << match.score_away >>
+                  </div>
+                  <div ng-if="!hasResult(match)" class="col-xs-2 result nopadding text-center">
+                    <div class="row date date-day"><< match.date | date : 'MMM d' >></div>
+                    <div class="row date date-time"><< match.date | date : 'H:mm' >></div>
+                  </div>
+
+                  <div class="col-xs-5 team">
+                    <div class="flex-media">
+                      <span class="flex-media-figure flag-icon flag-icon-<< match.away_team_code >>"></span>
+                      <div class="flex-media-body team-name"><< match.away_team >></div>
+                    </div>
+                  </div>
+                </div>
+              </v-pane-header>
+
+              <v-pane-content class="match-detail">
+                <v-tabs class="vTabs--default" horizontal control="matchTabs" active="matchTabs.active">
+                  <v-tab>Goals</v-tab>
+                  <v-tab>Predictions</v-tab>
+                </v-tabs>
+
+                <v-pages class="vPages--default" ng-swipe-left="matchTabs.next()" ng-swipe-right="matchTabs.previous()" active="matchTabs.active">
+
+                  <v-page>
+                    <div class="">
+                      <div class="row goals">
+                        <div class="col-xs-6">
+                          <div class="goal text-right" ng-repeat="goal in match.goals_home">
+                            <a href="<< goal.link >>" ng-if="goal.link">
+                              << goal.scored_by >> - << goal.minute >>
+                            </a ng-if="goal.link">
+			    <span ng-if="!goal.link">
+			      << goal.scored_by >> - << goal.minute >>
+			    </span>
+                          </div>
+                        </div>
+                        <div class="col-xs-6">
+                          <div class="goal" ng-repeat="goal in match.goals_away">
+                            <a href="<< goal.link >>" ng-if="goal.link">
+                              << goal.minute >> - << goal.scored_by >>
+                            </a ng-if="goal.link">
+			    <span ng-if="!goal.link">
+                              << goal.minute >> - << goal.scored_by >>
+			    </span>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </v-page>
+
+                  <v-page>
+
+                    <div class="container user-predictions">
+                      <div class="" ng-repeat="prediction in match.predictions">
+                        <div class="col-xs-9">
+                          << prediction.user >>
+                        </div>
+                        <div class="col-xs-3">
+                          << prediction.score_home >> - << prediction.score_away >>
+                        </div>
+                      </div>
+                    </div>
+                  </v-page>
+
+                </v-pages>
+              </v-pane-content>
+            </v-pane>
+
+          </v-accordion>
+
 
         </div>
       </v-page>
 
-      <v-page>
+      <v-page class="leaderboards-page">
 
-        <div class="container" ng-controller="leaderboardCtrl">
+        <div class="container leaderboards" ng-controller="leaderboardCtrl">
 
           <div class="col-xs-12" ng-repeat="user in leaderboard">
             <div class="row">
-	      <div class="col-xs-9">
-		<< user.full_name >>
-	      </div>
-	      <div class="col-xs-3">
-		<< user.score >>
-	      </div>
+              <div class="col-xs-9">
+                << user.full_name >>
+              </div>
+              <div class="col-xs-3">
+                << user.score >>
+              </div>
             </div>
           </div>
 

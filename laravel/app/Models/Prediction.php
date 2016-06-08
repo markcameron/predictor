@@ -15,6 +15,10 @@ class Prediction extends Model {
     return $this->belongsTo('App\Models\Match');
   }
 
+  public function user() {
+    return $this->belongsTo('App\Models\User');
+  }
+
   public function scopeUserPredictions($query) {
     return $query->whereUserId(\Auth::user()->id);
   }

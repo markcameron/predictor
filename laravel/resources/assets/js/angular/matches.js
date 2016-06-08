@@ -1,11 +1,11 @@
-angular.module('predictor', ['ngAnimate', 'ngTouch', 'ngDialog', 'vTabs'], ["$interpolateProvider", function($interpolateProvider) {
+angular.module('predictor', ['ngAnimate', 'ngTouch', 'ngDialog', 'vTabs', 'vAccordion'], ["$interpolateProvider", function($interpolateProvider) {
     $interpolateProvider.startSymbol('<<');
     $interpolateProvider.endSymbol('>>');
 }])
 
     .controller('mainCtrl', ["$scope", function($scope) {
         $scope.mainMenuTabs = {
-            active: 0
+            active: 1
         };
 
         $scope.hasResult = function(match) {
@@ -27,6 +27,9 @@ angular.module('predictor', ['ngAnimate', 'ngTouch', 'ngDialog', 'vTabs'], ["$in
             $scope.matches = response.statusText;
         });
 
+	$scope.matchTabs = {
+            active: 0
+        };
     }])
 
     .controller('predictionsCtrl', ["$scope", "$http", "ngDialog", function($scope, $http, ngDialog) {
