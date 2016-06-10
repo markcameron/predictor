@@ -42,12 +42,14 @@ angular.module('predictor', ['ngAnimate', 'ngTouch', 'ngDialog', 'vTabs'], ["$in
         $scope.openPrediction = function (match) {
 	    $scope.match = match;
 
-            ngDialog.open({
-                template: 'dialogPrediction',
-                controller: 'dialogPredictionCtrl',
-                className: 'ngdialog-theme-default ngdialog-theme-custom',
-		scope: $scope
-            });
+	    if (user.can_predict) {
+		ngDialog.open({
+                    template: 'dialogPrediction',
+                    controller: 'dialogPredictionCtrl',
+                    className: 'ngdialog-theme-default ngdialog-theme-custom',
+		    scope: $scope
+		});
+	    }
         };
     }])
 

@@ -2,6 +2,10 @@
 
 @section('content')
 
+  <script type="text/javascript">
+    var user = JSON.parse('<?php echo $user ?>');
+  </script>
+
   <div ng-app="predictor" ng-controller="mainCtrl" ng-strict-di>
 
     <v-tabs class="vTabs--default" horizontal control="mainMenuTabs" active="mainMenuTabs.active">

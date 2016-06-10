@@ -48,6 +48,10 @@ class PredictionsController extends AuthenticatedController {
       ->whereUserId($this->user->id)
       ->first();
 
+    if (!$this->user->can_predict) {
+      return Response::json(['No longer permitted to submit predictions'], 403);
+    }
+
     if (is_null($prediction)) {
       $prediction = Prediction::create(
         [
