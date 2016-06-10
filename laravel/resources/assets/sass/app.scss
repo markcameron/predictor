@@ -219,7 +219,7 @@ v-pane-content {
     @media (max-width: 768px) {
         .result {
             padding:0;
-            width:50px;
+            min-width:50px;
             vertical-align:middle;
         }
     }

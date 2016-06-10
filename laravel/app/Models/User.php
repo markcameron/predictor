@@ -31,4 +31,8 @@ class User extends Authenticatable
       return $this->first_name .' '. $this->last_name;
     }
 
+    public function predictions() {
+      return $this->hasMany('App\Models\Prediction');
+    }
+
 }

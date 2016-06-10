@@ -2,7 +2,9 @@ angular.module('predictor', ['ngAnimate', 'ngTouch', 'ngDialog', 'vTabs', 'vAcco
     $interpolateProvider.startSymbol('<<');
     $interpolateProvider.endSymbol('>>');
 }])
-
+    .config(['$compileProvider', function ($compileProvider) {
+	$compileProvider.debugInfoEnabled(false);
+    }])
     .controller('mainCtrl', ["$scope", function($scope) {
         $scope.mainMenuTabs = {
             active: 1
@@ -45,12 +47,14 @@ angular.module('predictor', ['ngAnimate', 'ngTouch', 'ngDialog', 'vTabs', 'vAcco
         $scope.openPrediction = function (match) {
 	    $scope.match = match;
 
-            ngDialog.open({
-                template: 'dialogPrediction',
-                controller: 'dialogPredictionCtrl',
-                className: 'ngdialog-theme-default ngdialog-theme-custom',
-		scope: $scope
-            });
+	    if (user.can_predict != 0) {
+		ngDialog.open({
+                    template: 'dialogPrediction',
+                    controller: 'dialogPredictionCtrl',
+                    className: 'ngdialog-theme-default ngdialog-theme-custom',
+		    scope: $scope
+		});
+	    }
         };
     }])
 
