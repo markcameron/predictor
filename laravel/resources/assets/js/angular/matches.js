@@ -43,7 +43,7 @@ angular.module('predictor', ['ngAnimate', 'ngTouch', 'ngDialog', 'vTabs'], ["$in
 
         $scope.openPrediction = function (match) {
 	    $scope.match = match;
-	    console.log(user.can_predict);
+
 	    if (user.can_predict != 0) {
 		ngDialog.open({
                     template: 'dialogPrediction',
