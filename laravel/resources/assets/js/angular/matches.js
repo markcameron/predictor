@@ -2,7 +2,9 @@ angular.module('predictor', ['ngAnimate', 'ngTouch', 'ngDialog', 'vTabs'], ["$in
     $interpolateProvider.startSymbol('<<');
     $interpolateProvider.endSymbol('>>');
 }])
-
+    .config(['$compileProvider', function ($compileProvider) {
+	$compileProvider.debugInfoEnabled(false);
+    }])
     .controller('mainCtrl', ["$scope", function($scope) {
         $scope.mainMenuTabs = {
             active: 0
