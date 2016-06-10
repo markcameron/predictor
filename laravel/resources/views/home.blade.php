@@ -114,11 +114,26 @@
 
               <v-pane-content class="match-detail">
                 <v-tabs class="vTabs--default" horizontal control="matchTabs" active="matchTabs.active">
-                  <v-tab>Goals</v-tab>
                   <v-tab>Predictions</v-tab>
+                  <v-tab>Goals</v-tab>
                 </v-tabs>
 
                 <v-pages class="vPages--default" ng-swipe-left="matchTabs.next()" ng-swipe-right="matchTabs.previous()" active="matchTabs.active">
+
+                  <v-page>
+
+                    <div class="container user-predictions">
+                      <div class="" ng-repeat="prediction in match.predictions">
+                        <div class="col-xs-9">
+                          << prediction.user >>
+                        </div>
+                        <div class="col-xs-3">
+                          << prediction.score_home >> - << prediction.score_away >>
+                        </div>
+                      </div>
+                    </div>
+
+                  </v-page>
 
                   <v-page>
                     <div class="">
@@ -144,20 +159,6 @@
                           </div>
                         </div>
 
-                      </div>
-                    </div>
-                  </v-page>
-
-                  <v-page>
-
-                    <div class="container user-predictions">
-                      <div class="" ng-repeat="prediction in match.predictions">
-                        <div class="col-xs-9">
-                          << prediction.user >>
-                        </div>
-                        <div class="col-xs-3">
-                          << prediction.score_home >> - << prediction.score_away >>
-                        </div>
                       </div>
                     </div>
                   </v-page>
