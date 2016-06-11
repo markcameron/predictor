@@ -40,6 +40,9 @@
           @foreach ($match->goalsHome as $goal)
 	    <div class="col-xs-12">
 	      {{ $goal->minute }} - {{ $goal->scored_by }}{{ !empty($goal->link) ? ' - L' : '' }}
+	      <a href="{{ route('admin.goals.edit', $goal->id) }}" class="btn btn-action btn-sm">
+		Edit
+	      </a>
 	    </div>
 	  @endforeach
 	</div>
@@ -47,6 +50,9 @@
           @foreach ($match->goalsAway as $goal)
 	    <div class="col-xs-12">
 	      {{ $goal->minute }} - {{ $goal->scored_by }}{{ !empty($goal->link) ? ' - L' : '' }}
+	      <a href="{{ route('admin.goals.edit', $goal->id) }}" class="btn btn-action">
+		Edit
+	      </a>
 	    </div>
 	  @endforeach
         </div>

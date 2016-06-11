@@ -55,10 +55,10 @@ class GoalsController extends AuthenticatedController {
    * @return json
    */
   public function edit($id) {
-    $match = Goal::findOrFail($id);
+    $goal = Goal::findOrFail($id);
 
-    return view('goals.edit')
-      ->withMatch($match);
+    return view('admin.goals.edit')
+      ->withGoal($goal);
   }
 
   /**
@@ -70,12 +70,11 @@ class GoalsController extends AuthenticatedController {
    * @return json
    */
   public function update(Request $request, $id) {
-    $match = Goal::findOrFail($id);
+    $goal = Goal::findOrFail($id);
 
-    $match->update($request->only('score_home', 'score_away'));
+    $goal->update($request->only('minute', 'scored_by', 'link'));
 
-    return view('goals.edit')
-      ->withMatch($match);
+    return redirect(route('admin.matches.edit', $request->match_id));
   }
 
 }

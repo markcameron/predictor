@@ -6,7 +6,9 @@
 
     <div class="match">
 
-      <form method="POST" action="{{ route('admin.goals.store') }}">
+      <form method="POST" action="{{ route('admin.goals.update', $goal->id) }}">
+
+	<input type="hidden" name="_method" value="PUT">
 
 	@include('admin.goals.form')
 
