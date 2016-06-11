@@ -3,7 +3,7 @@
 @section('content')
 
   <script type="text/javascript">
-    var user = JSON.parse('<?php echo $user ?>');
+   var user = JSON.parse('<?php echo $user ?>');
   </script>
 
   <div ng-app="predictor" ng-controller="mainCtrl" ng-strict-di>
@@ -140,22 +140,28 @@
                       <div class="row goals">
                         <div class="col-xs-6">
                           <div class="goal text-right" ng-repeat="goal in match.goals_home">
-                            <a href="<< goal.link >>" ng-if="goal.link">
+                            <span ng-if="goal.link">
+                              <a href="<< goal.link >>">
+                                << goal.scored_by >>
+                              </a ng-if="goal.link">
+                              - << goal.minute >>
+                            </span>
+                            <span ng-if="!goal.link">
                               << goal.scored_by >> - << goal.minute >>
-                            </a ng-if="goal.link">
-			    <span ng-if="!goal.link">
-			      << goal.scored_by >> - << goal.minute >>
-			    </span>
+                            </span>
                           </div>
                         </div>
                         <div class="col-xs-6">
                           <div class="goal" ng-repeat="goal in match.goals_away">
-                            <a href="<< goal.link >>" ng-if="goal.link">
-                              << goal.minute >> - << goal.scored_by >>
-                            </a ng-if="goal.link">
-			    <span ng-if="!goal.link">
-                              << goal.minute >> - << goal.scored_by >>
+			    <span ng-if="goal.link">
+                              << goal.minute >> -
+			      <a href="<< goal.link >>">
+				<< goal.scored_by >>
+                              </a ng-if="goal.link">
 			    </span>
+                            <span ng-if="!goal.link">
+                              << goal.minute >> - << goal.scored_by >>
+                            </span>
                           </div>
                         </div>
 
@@ -177,24 +183,24 @@
 
         <div class="container leaderboards" ng-controller="leaderboardCtrl">
 
-	  <table class="table text-center">
-	    <thead>
-	      <th></th>
-	      <th></th>
-	      <th class="text-center">ES</th>
-	      <th class="text-center">GD</th>
-	      <th class="text-center">W</th>
-	      <th class="text-center">Total</th>
-	    </thead>
-	    <tr ng-repeat="user in leaderboard">
-	      <td class="text-right"><< $index + 1 >>.</td>
-	      <td class="text-left"><< user.full_name >></td>
-	      <td><< user.exact_score >></td>
-	      <td><< user.correct_goal_difference >></td>
-	      <td><< user.correct_winner >></td>
-	      <td><strong><< user.score >></strong></td>
-	    </tr>
-	  </table>
+          <table class="table text-center">
+            <thead>
+              <th></th>
+              <th></th>
+              <th class="text-center">ES</th>
+              <th class="text-center">GD</th>
+              <th class="text-center">W</th>
+              <th class="text-center">Total</th>
+            </thead>
+            <tr ng-repeat="user in leaderboard">
+              <td class="text-right"><< $index + 1 >>.</td>
+              <td class="text-left"><< user.full_name >></td>
+              <td><< user.exact_score >></td>
+              <td><< user.correct_goal_difference >></td>
+              <td><< user.correct_winner >></td>
+              <td><strong><< user.score >></strong></td>
+            </tr>
+          </table>
 
         </div>
 
