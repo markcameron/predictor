@@ -1,6 +1,6 @@
 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-<input type="hidden" name="match_id" value="{{ isset($goal->match_id) ? isset($goal->match_id) : $request->match_id }}">
-<input type="hidden" name="team" value="{{ isset($goal->team) ? isset($goal->team) : $request->team }}">
+<input type="hidden" name="match_id" value="{{ isset($goal->match_id) ? $goal->match_id : $request->match_id }}">
+<input type="hidden" name="team" value="{{ isset($goal->team) ? $goal->team : $request->team }}">
 
 <div class="row">
   <div class="col-xs-12">
