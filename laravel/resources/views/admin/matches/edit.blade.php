@@ -6,6 +6,10 @@
 
     <div class="match">
 
+      <div class="row">
+	<a href="{{ url('admin/matches') }}" class="btn btn-action">Match List</a>
+      </div>
+
       <form method="POST" action="{{ route('admin.matches.update', $match->id) }}">
 
 	<input type="hidden" name="_method" value="PUT">
