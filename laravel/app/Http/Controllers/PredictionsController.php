@@ -24,7 +24,7 @@ class PredictionsController extends AuthenticatedController {
    * @return json
    */
   public function index() {
-    $matches = Match::get();
+    $matches = Match::orderBy('date', 'DESC')->get();
 
     $matches = $matches->map(
       function($match) {

@@ -2,9 +2,11 @@ angular.module('predictor', ['ngAnimate', 'ngTouch', 'ngDialog', 'vTabs', 'vAcco
     $interpolateProvider.startSymbol('<<');
     $interpolateProvider.endSymbol('>>');
 }])
+
     .config(['$compileProvider', function ($compileProvider) {
 	$compileProvider.debugInfoEnabled(false);
     }])
+
     .controller('mainCtrl', ["$scope", function($scope) {
         $scope.mainMenuTabs = {
             active: 1
@@ -47,7 +49,7 @@ angular.module('predictor', ['ngAnimate', 'ngTouch', 'ngDialog', 'vTabs', 'vAcco
         $scope.openPrediction = function (match) {
 	    $scope.match = match;
 
-	    if (user.can_predict != 0) {
+	    if (user.can_predict != 0 && match.can_predict != 0) {
 		ngDialog.open({
                     template: 'dialogPrediction',
                     controller: 'dialogPredictionCtrl',
@@ -59,11 +61,14 @@ angular.module('predictor', ['ngAnimate', 'ngTouch', 'ngDialog', 'vTabs', 'vAcco
     }])
 
     .controller('dialogPredictionCtrl', ["$scope", "$http", "ngDialog", function ($scope, $http, ngDialog) {
-	if ($scope.match.score_home == null) {
-	    $scope.match.score_home = 0;
+	$scope.score_home = $scope.match.score_home;
+	$scope.score_away = $scope.match.score_away;
+
+	if ($scope.score_home == null) {
+	    $scope.score_home = 0;
 	}
-	if ($scope.match.score_away == null) {
-	    $scope.match.score_away = 0;
+	if ($scope.score_away == null) {
+	    $scope.score_away = 0;
 	}
 
         $scope.next = function () {
@@ -76,25 +81,28 @@ angular.module('predictor', ['ngAnimate', 'ngTouch', 'ngDialog', 'vTabs', 'vAcco
 
 	$scope.increaseScore = function(team) {
 	    var key = 'score_' + team;
-	    if ($scope.match[key] >= 20) {
-		$scope.match[key] = 20;
+	    if ($scope[key] >= 20) {
+		$scope[key] = 20;
 	    }
 	    else {
-		$scope.match[key]++;
+		$scope[key]++;
 	    }
 	}
 
 	$scope.decreaseScore = function(team) {
 	    var key = 'score_' + team;
-	    if ($scope.match[key] <= 0) {
-		$scope.match[key] = 0;
+	    if ($scope[key] <= 0) {
+		$scope[key] = 0;
 	    }
 	    else {
-		$scope.match[key]--;
+		$scope[key]--;
 	    }
 	}
 
 	$scope.saveScore = function() {
+	    $scope.match.score_home = $scope.score_home;
+	    $scope.match.score_away = $scope.score_away;
+
 	    $http({
 		method : "put",
 		url : "/predictions/" + $scope.match.id,

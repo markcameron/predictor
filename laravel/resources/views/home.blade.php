@@ -53,12 +53,12 @@
             </div>
             <div class="row score-select text-center">
               <div class="col-xs-4"><a href="" class="btn btn-action" ng-click="decreaseScore('home')"> - </a></div>
-              <div class="col-xs-4 score score-home"><< match.score_home >></div>
+              <div class="col-xs-4 score score-home"><< score_home >></div>
               <div class="col-xs-4"><a href="" class="btn btn-action" ng-click="increaseScore('home')"> + </a></div>
             </div>
             <div class="row score-select text-center">
               <div class="col-xs-4"><a href="" class="btn btn-action" ng-click="decreaseScore('away')"> - </a></div>
-              <div class="col-xs-4 score"><< match.score_away >></div>
+              <div class="col-xs-4 score"><< score_away >></div>
               <div class="col-xs-4"><a href="" class="btn btn-action" ng-click="increaseScore('away')"> + </a></div>
             </div>
             <div class="row team-name">
@@ -67,6 +67,9 @@
                 <p class="flex-media-body "><< match.away_team >></p>
               </div>
             </div>
+	    <div ng-if="match.is_ko_stage" class="row ko-stage-help">
+	      <p><small>NOTE: Your prediction will be the result of the match after 90 mins, if there is a winner, or after 120 minutes if there was a draw at 90. If you predict a draw after 120 minutes, you enter that result and <strong>not</strong> the result counting penalties.</small></p>
+	    </div>
           </div>
           <div class="ngdialog-buttons mt">
             <div class="col-xs-6">
@@ -113,12 +116,12 @@
               </v-pane-header>
 
               <v-pane-content class="match-detail">
-                <v-tabs class="vTabs--default" horizontal control="matchTabs" active="matchTabs.active">
+		<v-tabs ng-if="!match.can_predict" class="vTabs--default" horizontal control="matchTabs" active="matchTabs.active">
                   <v-tab>Predictions</v-tab>
                   <v-tab>Goals</v-tab>
                 </v-tabs>
 
-                <v-pages class="vPages--default" ng-swipe-left="matchTabs.next()" ng-swipe-right="matchTabs.previous()" active="matchTabs.active">
+                <v-pages ng-if="!match.can_predict" class="vPages--default" ng-swipe-left="matchTabs.next()" ng-swipe-right="matchTabs.previous()" active="matchTabs.active">
 
                   <v-page>
 

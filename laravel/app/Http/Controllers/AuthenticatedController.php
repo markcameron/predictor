@@ -23,6 +23,8 @@ class AuthenticatedController extends Controller {
   protected function cleanMatch($match) {
     return (object) [
       'id' => $match->id,
+      'can_predict' => $match->can_predict,
+      'is_ko_stage' => $match->is_ko_stage,
       'home_team' => $match->teamHome->name,
       'home_team_code' => $match->teamHome->code,
       'score_home' => $match->score_home,

@@ -19,7 +19,7 @@ v-tab.is-active {
 }
 v-tab {
     v-tab.is-active {
-	color: #65beec;
+        color: #65beec;
     }
 }
 .vTabs--default v-tab.is-active::after {
@@ -58,92 +58,135 @@ $v-pane-hover-animation-duration:   0.25s !default;
 
 
 v-accordion {
-  display: block;
+    display: block;
 }
 
 v-pane {
-  display: block;
+    display: block;
 
-  &.is-expanded {
-    > v-pane-content {
-      > div {
-        display: visible;
-      }
+    &.is-expanded {
+        > v-pane-content {
+            > div {
+                display: visible;
+            }
+        }
     }
-  }
 
-  &[disabled] > v-pane-header {
-    opacity: $v-pane-disabled-opacity;
-    pointer-events: none;
-  }
+    &[disabled] > v-pane-header {
+        opacity: $v-pane-disabled-opacity;
+        pointer-events: none;
+    }
 }
 
 v-pane-header {
-  display: block;
-  position: relative;
-  cursor: pointer;
-  user-select: none;
-  outline: none;
-
-  &:focus {
-    outline: none;
-  }
-
-  > div {
     display: block;
-  }
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    outline: none;
+
+    &:focus {
+        outline: none;
+    }
+
+    > div {
+        display: block;
+    }
 }
 
 v-pane-content {
-  display: block;
-  position: relative;
-  overflow: hidden;
-  max-height: 0px;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    max-height: 0px;
 
-  > div {
-    visibility: none;
-  }
+    > div {
+        visibility: none;
+    }
 }
 
 .ngdialog.ngdialog-theme-custom {
     padding-top: 125px;
     padding-bottom: 125px;
-}
 
-.ngdialog.ngdialog-theme-custom .ngdialog-overlay {
-    background: rgba(0,0,0,.5);
-}
+    .ngdialog-overlay {
+        background: rgba(0,0,0,.5);
+    }
 
-.ngdialog.ngdialog-theme-custom .ngdialog-content {
-    background: #007cba;
-    opacity: 1;
-    padding: 1.8em 2em;
-    width: 440px;
-    -webkit-border-radius: 0;
-    border-radius: 0;
-}
+    .ngdialog-content {
+        background: #007cba;
+        opacity: 1;
+        padding: 1.8em 2em;
+        width: 440px;
+        -webkit-border-radius: 0;
+        border-radius: 0;
+    }
 
-.ngdialog.ngdialog-theme-custom .ngdialog-message h2 {
-    font-size: 26px;
-    font-family: 'Montserrat', 'Helvetica', Arial, sans-serif;
-    line-height: 30px;
-    margin-bottom: 20px;
-}
+    .ngdialog-buttons {
+        margin-top:20px;
 
-.ngdialog.ngdialog-theme-custom .ngdialog-message {
-    font-size: 16px;
-    font-family: 'Source Sans Pro';
-    line-height: 22px;
-}
+        a {
+            width:100%;
+        }
+    }
 
-.ngdialog.ngdialog-theme-custom .ngdialog-message ul {
-    padding: 0 0 5px 35px;
-}
+    .ngdialog-message h2 {
+        font-size: 26px;
+        font-family: 'Montserrat', 'Helvetica', Arial, sans-serif;
+        line-height: 30px;
+        margin-bottom: 20px;
+    }
 
-.ngdialog.ngdialog-theme-custom .ngdialog-button.ngdialog-button-primary {
-    background: #27ae60;
-    -webkit-border-radius: 0;
-    border-radius: 0;
+    .ngdialog-message {
+        font-size: 16px;
+        line-height: 22px;
+        font-family:'Lato';
+        color:#fff;
+
+        .team-name {
+            font-size:1.5em;
+        }
+
+        .score-select {
+            font-size:1.8em;
+            margin:20px 0;
+            height:50px;
+        }
+
+        .score-select a {
+            font-weight:600;
+            font-size: 24px;
+            line-height: 18px;
+            padding: 6px 10px;
+        }
+
+        .score {
+            font-size:2.4em;
+        }
+
+        .flex-media-reverse > .flex-media-figure {
+            margin:0 0 0 1em;
+        }
+
+        .flex-media-figure {
+            margin:0 1em 0 0;
+        }
+
+        .ko-stage-help {
+            margin-top:15px;
+        }
+    }
+
+    .ngdialog-message ul {
+        padding: 0 0 5px 35px;
+    }
+
+    .ngdialog-button.ngdialog-button-primary {
+        background: #27ae60;
+        -webkit-border-radius: 0;
+        border-radius: 0;
+    }
+
 }
 
 .flex-media {
@@ -163,26 +206,26 @@ v-pane-content {
     font-weight:400;
 
     .match-result {
-	height:40px;
+        height:40px;
     }
 
     .result {
-	.date {
-	    line-height:15px;
-	}
+        .date {
+            line-height:15px;
+        }
 
-	.date-day {
-	    font-weight:400;
-	    text-transform:uppercase;
-	    font-size:0.7em;
-	}
-	.date-time {
-	    font-size:0.9em;
-	}
+        .date-day {
+            font-weight:400;
+            text-transform:uppercase;
+            font-size:0.7em;
+        }
+        .date-time {
+            font-size:0.9em;
+        }
     }
 
     .flex-media {
-	margin-top: 2px;
+        margin-top: 2px;
     }
     .flex-media-reverse > .flex-media-figure {
         margin:4px 0 0 1em;
@@ -192,7 +235,7 @@ v-pane-content {
     }
 
     a.btn {
-	padding: 2px 12px;
+        padding: 2px 12px;
     }
 
     .team-name {
@@ -229,30 +272,30 @@ v-pane-content {
 .row.results {
 
     .match-detail {
-	font-size:0.8em;
+        font-size:0.8em;
     }
 
     v-tabs {
-	background:#004466;
+        background:#004466;
     }
     v-pages {
-	background:#004466;
+        background:#004466;
     }
 
     .vTabs--default {
-	margin-bottom: 0;
+        margin-bottom: 0;
     }
     .vTabs--default[horizontal] v-tab {
-	padding: 5px 0;
+        padding: 5px 0;
     }
 
     .goals,
     .user-predictions {
-	padding:5px 0
+        padding:5px 0
     }
 
     .goal a {
-	color:#65beec;
+        color:#65beec;
     }
 }
 
@@ -262,55 +305,12 @@ v-page.leaderboards-page {
 
 .ngdialog.ngdialog-theme-custom {
 
-    .ngdialog-buttons {
-
-	margin-top:20px;
-
-	a {
-        width:100%;
-	}
-    }
-
-    .ngdialog-message {
-
-        font-family:'Lato';
-        color:#fff;
-
-        .team-name {
-            font-size:1.5em;
-        }
-
-        .score-select {
-            font-size:1.8em;
-            margin:20px 0;
-            height:50px;
-        }
-
-        .score-select a {
-            font-weight:600;
-            font-size: 24px;
-            line-height: 18px;
-            padding: 6px 10px;
-        }
-
-        .score {
-            font-size:2.4em;
-        }
-
-        .flex-media-reverse > .flex-media-figure {
-            margin:0 0 0 1em;
-        }
-        .flex-media-figure {
-            margin:0 1em 0 0;
-        }
-    }
-
 }
 
 .btn-action {
-  color: #ffffff;
-  background-color: #23AAED;
-  border-color: #23AAED;
+    color: #ffffff;
+    background-color: #23AAED;
+    border-color: #23AAED;
 }
 
 .btn-action:hover,
@@ -318,15 +318,15 @@ v-page.leaderboards-page {
 .btn-action:active,
 .btn-action.active,
 .open .dropdown-toggle.btn-action {
-  color: #ffffff;
-  background-color: #088BCC;
-  border-color: #23AAED;
+    color: #ffffff;
+    background-color: #088BCC;
+    border-color: #23AAED;
 }
 
 .btn-action:active,
 .btn-action.active,
 .open .dropdown-toggle.btn-action {
-  background-image: none;
+    background-image: none;
 }
 
 .btn-action.disabled,
@@ -344,13 +344,13 @@ fieldset[disabled] .btn-action:active,
 .btn-action.disabled.active,
 .btn-action[disabled].active,
 fieldset[disabled] .btn-action.active {
-  background-color: #23AAED;
-  border-color: #23AAED;
+    background-color: #23AAED;
+    border-color: #23AAED;
 }
 
 .btn-action .badge {
-  color: #23AAED;
-  background-color: #ffffff;
+    color: #23AAED;
+    background-color: #ffffff;
 }
 
 .btn-cancel {
@@ -403,9 +403,9 @@ fieldset[disabled] .btn-cancel.active {
 
     .match {
 
-	input {
-	    color:#222;
-	}
+        input {
+            color:#222;
+        }
 
     }
 
