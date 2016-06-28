@@ -116,12 +116,12 @@
               </v-pane-header>
 
               <v-pane-content class="match-detail">
-		<v-tabs ng-if="match.can_predict == 0" class="vTabs--default" horizontal control="matchTabs" active="matchTabs.active">
+		              <v-tabs ng-show="match.can_predict == 0" class="vTabs--default" horizontal control="matchTabs" active="matchTabs.active">
                   <v-tab>Predictions</v-tab>
                   <v-tab>Goals</v-tab>
                 </v-tabs>
 
-                <v-pages ng-if="match.can_predict == 0" class="vPages--default" ng-swipe-left="matchTabs.next()" ng-swipe-right="matchTabs.previous()" active="matchTabs.active">
+                <v-pages ng-show="match.can_predict == 0" class="vPages--default" active="matchTabs.active">
 
                   <v-page>
 
