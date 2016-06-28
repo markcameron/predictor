@@ -32,7 +32,7 @@ angular.module('predictor', ['ngAnimate', 'ngTouch', 'ngDialog', 'vTabs', 'vAcco
         });
 
 	$scope.matchTabs = {
-            active: 0
+            active: 1
         };
     }])
 
