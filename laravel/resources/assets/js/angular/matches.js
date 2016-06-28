@@ -13,6 +13,10 @@ angular.module('predictor', ['ngAnimate', 'ngTouch', 'ngDialog', 'vTabs', 'vAcco
         };
 
         $scope.hasResult = function(match) {
+          if (match.can_predict == 0) {
+            return true
+          }
+
             if (match.score_home != null && match.score_away != null) {
                 return true;
             }

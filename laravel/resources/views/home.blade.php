@@ -30,7 +30,7 @@
               << match.score_home >> - << match.score_away >>
             </div>
             <div ng-if="!hasResult(match)" class="col-xs-2 result nopadding text-center">
-              <a href="#" class="btn btn-action btn-flat btn-sm">Add</a>
+              <a href="" class="btn btn-action btn-flat btn-sm">Add</a>
             </div>
 
             <div class="col-xs-5 team">
