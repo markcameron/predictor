@@ -6,7 +6,11 @@
   },
   "devDependencies": {
     "gulp": "^3.9.1",
-    "laravel-elixir": "^5.0.0",
+    "laravel-elixir": "^5.0.0"
+  },
+  "dependencies": {
+    "v-accordion": "^1.6.0",
+    "v-tabs": "^0.2.0",
     "bootstrap-sass": "^3.0.0",
     "angular": "^1.0.0",
     "angular-animate": "^1.0.0",
