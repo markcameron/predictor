@@ -26,10 +26,11 @@
               </div>
             </div>
 
-            <div ng-if="hasResult(match)" class="col-xs-2 result nopadding text-center">
-              << match.score_home >> - << match.score_away >>
+            <div ng-if="!canPredict(match)" class="col-xs-2 result nopadding text-center">
+              <div ng-if="match.score_home != null && match.score_away != null"><< match.score_home >> - << match.score_away >></div>
+              <div ng-if="match.score_home == null && match.score_away == null">¯\_(ツ)_/¯</div>
             </div>
-            <div ng-if="!hasResult(match)" class="col-xs-2 result nopadding text-center">
+            <div ng-if="canPredict(match)" class="col-xs-2 result nopadding text-center">
               <a href="" class="btn btn-action btn-flat btn-sm">Add</a>
             </div>
 

@@ -54,7 +54,7 @@ class MatchesController extends AuthenticatedController {
     return Response::json($match->first(), 200);
   }
 
-    /**
+  /**
    * Insert the users predictions for the match score over the match object
    *
    * @param object $match
@@ -97,6 +97,14 @@ class MatchesController extends AuthenticatedController {
     return $goals;
   }
 
+  /**
+   * Helper object to create a clean prediction object for each users
+   * predicted score
+   *
+   * @param Model $match
+   *
+   * @return array
+   */
   protected function getPredictions($match) {
     $predictions = [];
 

@@ -2,12 +2,12 @@
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
 body {
-    background:#007cba;
-    color:#fff;
+  background:#007cba;
+  color:#fff;
 }
 
 v-tabs[horizontal] v-tab.my-predictions {
-    min-width: 120px;
+  min-width: 120px;
 }
 
 v-tabs {
