@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder {
       $this->call(EigthFinalsSeederTableSeeder::class);
       $this->call(QuarterFinalsTableSeeder::class);
       $this->call(SemiFinalsTableSeeder::class);
+      $this->call(FinalTableSeeder::class);
     }
 
 }
