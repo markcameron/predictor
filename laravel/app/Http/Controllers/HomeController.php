@@ -22,8 +22,9 @@ class HomeController extends AuthenticatedController {
    *
    * @return \Illuminate\Http\Response
    */
-  public function privacyPolicy() {
-    return view('privacy_policy');
+  public function index() {
+    return view('home')
+        ->withUser($this->user);
   }
 
 }
