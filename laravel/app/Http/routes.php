@@ -36,4 +36,6 @@ Route::resource('admin/goals', 'Admin\GoalsController', [
     'only' => ['create', 'store', 'edit', 'update']
 ]);
 
+Route::get('privacy-policy', 'PagesController@privacyPolicy');
+
 Route::auth();

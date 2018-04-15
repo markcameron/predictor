@@ -4,18 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
-use App\Http\Controllers\AuthenticatedController;
+use App\Http\Controllers\Controller;
 
-class HomeController extends AuthenticatedController {
-
-  /**
-   * Create a new controller instance.
-   *
-   * @return void
-   */
-  public function __construct() {
-    parent::__construct();
-  }
+class PagesController extends Controller {
 
   /**
    * Show the application dashboard.
