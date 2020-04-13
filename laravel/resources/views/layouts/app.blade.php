@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
 
     <!-- Styles -->
-    <link href="{{ asset('css/vendor.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="/css/vendor.css" rel="stylesheet">
+    <link href="'css/app.css" rel="stylesheet">
 
     <style>
      body {
@@ -51,8 +51,8 @@
     @yield('content')
 
     <!-- JavaScripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/vendor.js') }}"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/vendor.js"></script>
 
     <script>
      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
