@@ -12,7 +12,7 @@
     "v-accordion": "^1.6.0",
     "v-tabs": "^0.2.0",
     "bootstrap-sass": "^3.0.0",
-    "angular": "^1.0.0",
+    "angular": "^1.8.3",
     "angular-animate": "^1.0.0",
     "angular-touch": "^1.0.0",
     "ng-dialog": "^0.6.0"
